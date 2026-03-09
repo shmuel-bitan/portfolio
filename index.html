@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shmuel Bitan — Cybersecurity & Network Engineering</title>
+    <meta name="description" content="Portfolio de Shmuel Bitan, étudiant en cybersécurité et réseau au CNAM. Projets en sécurité informatique, réseaux, cloud et développement Python.">
+    <meta name="author" content="Shmuel Bitan">
+    <meta name="google-site-verification" content="bQNBvyW3uhvUd-tlKFfyvfrz0wG10B-TDz9rWShBs4I" />
+    <link rel="icon" type="image/png" href="./assets/icons/BS_squared.png" sizes="32x32">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="main.js"></script>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<header id="header">
+    <div class="nav-left">
+        <div class="socials">
+            <a href="https://fr.linkedin.com/in/shmuel-bitan-1a6395196" target="_blank" title="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                    <path d="M77.796 214.238V98.986H39.488v115.252H77.8zM58.65 83.253c13.356 0 21.671-8.85 21.671-19.91-.25-11.312-8.315-19.915-21.417-19.915-13.111 0-21.674 8.603-21.674 19.914 0 11.06 8.312 19.91 21.169 19.91h.248zM99 214.238h38.305v-64.355c0-3.44.25-6.889 1.262-9.346 2.768-6.885 9.071-14.012 19.656-14.012 13.858 0 19.405 10.568 19.405 26.063v61.65h38.304v-66.082c0-35.399-18.896-51.872-44.099-51.872-20.663 0-29.738 11.549-34.78 19.415h.255V98.99H99.002c.5 10.812-.003 115.252-.003 115.252z"/>
+                </svg>
+            </a>
+            <a href="https://github.com/shmuel-bitan" target="_blank" title="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 999.937 999.937">
+                    <path d="M0 499.968c0-138.012 48.825-255.843 146.476-353.493C244.125 48.825 361.956 0 499.969 0 637.98 0 755.811 48.825 853.462 146.475c97.649 97.65 146.475 215.481 146.475 353.493s-48.825 255.843-146.475 353.493c-97.65 97.65-215.481 146.476-353.493 146.476-138.013 0-255.844-48.825-353.493-146.476C48.825 755.812 0 637.979 0 499.968zm54.684 0c0 122.389 43.617 227.199 130.851 314.434 87.234 87.233 192.045 130.851 314.434 130.851 122.388 0 227.199-43.617 314.433-130.851 87.234-87.234 130.851-192.045 130.851-314.434 0-122.388-43.616-227.199-130.851-314.433C727.168 98.301 622.356 54.684 499.969 54.684c-122.389 0-227.199 43.617-314.434 130.851C98.301 272.769 54.684 377.58 54.684 499.968zm140.617 107.415c-2.604-2.604-2.604-5.208 0-7.812 5.207-5.208 11.718-7.161 19.529-5.859 7.812 1.302 12.369 2.604 13.671 3.906 9.114 3.906 19.205 12.694 30.271 26.366 11.066 13.671 19.855 23.11 26.366 28.318 31.248 26.04 63.146 27.993 95.696 5.859 2.604-9.114 6.836-16.926 12.694-23.437 5.858-6.51 11.393-11.066 16.601-13.671 5.209-2.604 14.323-6.51 27.343-11.718-42.967-3.906-77.795-11.393-104.486-22.46s-47.849-25.063-63.473-41.989c-20.832-23.436-33.527-54.033-38.084-91.791-4.558-37.758-1.628-72.261 8.789-103.509 7.812-19.53 18.879-37.106 33.2-52.731-10.416-32.55-8.463-69.657 5.859-111.321 41.664 2.604 79.422 16.926 113.274 42.966 65.1-16.926 132.804-17.577 203.111-1.953 9.114-6.51 23.111-14.647 41.989-24.413 18.879-9.765 42.641-15.299 71.285-16.601 5.208 14.322 8.789 31.248 10.742 50.778s.977 37.758-2.929 54.684c29.945 31.248 45.569 72.912 46.871 124.992 0 41.664-7.16 76.167-21.482 103.509s-39.711 50.127-76.167 68.354c-24.738 11.719-57.288 18.879-97.65 21.483 18.229 9.114 31.574 18.554 40.037 28.319 8.464 9.765 13.997 25.063 16.602 45.895v61.521l1.952 59.566c3.906 6.511 8.464 12.044 13.672 16.602 5.208 4.557 9.765 7.812 13.671 9.765 3.905 1.953 5.208 4.883 3.905 8.789-1.302 3.906-6.51 5.859-15.623 5.859-22.135 0-39.711-7.812-52.731-23.437-3.906-6.51-5.859-14.321-5.859-23.436v-93.744c0-10.416-2.604-17.903-7.812-22.46-5.208-4.558-10.416-7.487-15.624-8.789v123.039c0 22.134 2.604 36.456 7.812 42.966s8.463 13.021 9.766 19.53c1.302 1.302.325 2.278-2.93 2.929-3.254.65-8.788-.325-16.601-2.929-16.926-3.906-28.644-12.695-35.154-26.366-6.51-13.671-9.765-28.319-9.765-43.943V667.926H488.25v121.086c0 15.624-3.256 30.598-9.766 44.919-9.113 18.229-26.04 27.993-50.777 29.295-3.906-1.302-5.859-2.604-5.859-3.905 1.302-1.303 5.208-7.812 11.718-19.53 1.302-2.604 2.93-7.812 4.883-15.624 1.954-7.812 2.93-16.926 2.93-27.342v-123.04c-5.208 1.302-10.091 4.231-14.648 8.789s-6.836 12.044-6.836 22.46v93.744c0 9.113-1.953 16.926-5.859 23.436-11.718 15.624-29.295 23.437-52.73 23.437-9.114 0-14.322-1.953-15.624-5.859-1.303-2.604-.977-4.883.977-6.836s4.883-4.232 8.789-6.836c3.906-2.604 6.51-4.558 7.812-5.859 5.208-3.906 9.113-9.114 11.718-15.624 3.906-5.208 4.882-18.879 2.929-41.013s-2.279-36.456-.977-42.966c-33.853 11.718-68.355 5.858-103.51-17.577-10.416-10.416-20.832-25.39-31.248-44.919-7.812-14.323-23.436-31.249-46.871-50.779z"/>
+                </svg>
+            </a>
+        </div>
+        <a href="#accueil" class="logo-name">shmuel.bitan</a>
+    </div>
+
+    <div id="hamburger" tabindex="0" role="button" aria-label="Ouvrir/fermer le menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+
+    <nav>
+        <ul id="menu">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#profil">Profil</a></li>
+            <li><a href="#formationsXP">Parcours</a></li>
+            <li><a href="#xpPro">Projets</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#veille">Veille</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ══ BANNER ══ -->
+<section id="accueil">
+    <div class="banner-glow-1"></div>
+    <div class="banner-glow-2"></div>
+    <div class="banner-grid">
+        <div class="banner-text">
+            <div class="banner-tag">Disponible · Open to work</div>
+            <h1>Shmuel<br><span>Bitan</span></h1>
+            <h2>Cybersecurity & Network Engineering<br>Master ROC · CNAM Paris · 20 ans</h2>
+            <div class="banner-btns">
+                <a href="#xpPro" class="btn btn-primary">
+                    <i class="fas fa-code"></i> Voir mes projets
+                </a>
+                <a href="#contact" class="btn btn-outline">Me contacter</a>
+            </div>
+        </div>
+
+        <div class="terminal">
+            <div class="terminal-bar">
+                <span class="dot dot-r"></span>
+                <span class="dot dot-y"></span>
+                <span class="dot dot-g"></span>
+                <span class="terminal-title">~/shmuel — zsh</span>
+            </div>
+            <div class="terminal-body">
+                <div><span class="t-comment"># whoami</span></div>
+                <div><span class="t-key">name</span>      : <span class="t-val">Shmuel Bitan</span></div>
+                <div><span class="t-key">age</span>       : <span class="t-val">20</span></div>
+                <div><span class="t-key">status</span>    : <span class="t-acc">open_to_work</span></div>
+                <div><span class="t-key">focus</span>     : <span class="t-val">cybersecurity &amp; networks</span></div>
+                <div><span class="t-key">formation</span> : <span class="t-val">Master ROC · CNAM Paris</span></div>
+                <div>&nbsp;</div>
+                <div><span class="t-comment"># certifications</span></div>
+                <div><span class="t-key">jr_pentester</span> : <span class="t-acc">✓ THM certified</span></div>
+                <div><span class="t-key">red_teaming</span>  : <span class="t-purple">95% · in progress</span></div>
+                <div><span class="t-key">thm_streak</span>   : <span class="t-val">12 jours 🔥</span></div>
+                <div>&nbsp;</div>
+                <div><span class="t-comment">$ </span><span class="t-cursor"></span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ PROFIL ══ -->
+<section id="profil" class="section-alt">
+    <div class="section-inner">
+        <div class="heading">
+            <span class="label">// profil</span>
+            <h2>À propos de moi</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Je m'appelle Shmuel Bitan, j'ai 20 ans et je me spécialise en cybersécurité et réseaux au CNAM Paris (Master ROC, cours du soir). Passionné d'informatique depuis toujours, j'ai obtenu mon bac mention Très Bien à 15 ans avant de me lancer dans un parcours de formation atypique — enchaînant plusieurs diplômes en parallèle et à vitesse accélérée.</p>
+                <p>Mes centres d'intérêt couvrent la sécurité offensive (pentest, red teaming), l'architecture réseau avancée (MPLS, VPN, BGP), et l'application de l'intelligence artificielle à la cybersécurité (détection d'intrusions, classification d'attaques, agents autonomes).</p>
+                <p>Actuellement en recherche d'une première expérience professionnelle en cybersécurité, je pratique activement sur TryHackMe (Jr Pentester certifié, Red Teaming à 95%) en attendant de rejoindre une équipe qui me permettra de valider mon titre d'ingénieur.</p>
+
+                <h3>// mes qualités</h3>
+                <ul class="qualities">
+                    <li>Apprentissage rapide — plusieurs formations terminées bien avant les délais prévus</li>
+                    <li>Autonomie et discipline (cours du soir + pratique quotidienne sur THM)</li>
+                    <li>Bon relationnel et forte capacité d'adaptation</li>
+                    <li>Curiosité technique et veille active en cybersécurité</li>
+                </ul>
+
+                <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="./assets/docs/bts/cv-Shmuel-BITAN-14-5-2023 (1).pdf" target="_blank" class="btn btn-outline">
+                        <i class="fa fa-eye"></i> Consulter le CV
+                    </a>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>$ info --short</h3>
+                <div class="info-row"><span class="key">Localisation</span><span class="val">Paris, France</span></div>
+                <div class="info-row"><span class="key">Formation</span><span class="val">Master ROC · CNAM</span></div>
+                <div class="info-row"><span class="key">Année</span><span class="val">2ème année</span></div>
+                <div class="info-row"><span class="key">Spécialité</span><span class="val">Cyber & Réseau</span></div>
+                <div class="info-row"><span class="key">Disponibilité</span><span class="val green">Open to work</span></div>
+                <div class="info-row"><span class="key">Email</span><span class="val" style="font-size:.75rem;">bitan.shmuelm@gmail.com</span></div>
+                <div class="info-row"><span class="key">GitHub</span><span class="val">shmuel-bitan</span></div>
+                <div class="info-row"><span class="key">TryHackMe</span><span class="val green">Jr Pentester ✓</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ TIMELINE ══ -->
+<section id="formationsXP">
+    <div class="section-inner">
+        <div class="heading">
+            <span class="label">// parcours</span>
+            <h2>Formations & Expériences</h2>
+        </div>
+
+        <div class="timeline-track">
+
+            <div class="tl-item">
+                <div class="tl-card">
+                    <div class="tl-date">2020</div>
+                    <h3>Baccalauréat Général</h3>
+                    <p>Spécialités Maths, Physique-Chimie, SVT. Obtenu à 15 ans.</p>
+                    <span class="tl-badge tl-badge-green">Mention Très Bien</span>
+                </div>
+            </div>
+
+            <div class="tl-item">
+                <div class="tl-card">
+                    <div class="tl-date">2021</div>
+                    <h3>RNCP 5 — Développeur Web</h3>
+                    <p>OpenClassrooms · Formation terminée en 9 mois au lieu de 2 ans. En parallèle des cours du soir au CNAM.</p>
+                    <span class="tl-badge tl-badge-purple">9 mois / 2 ans</span>
+                </div>
+            </div>
+
+            <div class="tl-item">
+                <div class="tl-card">
+                    <div class="tl-date">2021 – 2022</div>
+                    <h3>BTS SIO SLAM</h3>
+                    <p>CNED · Candidat libre. Ouverture directe à la 3ème année de licence CNAM.</p>
+                    <span class="tl-badge tl-badge-green">Diplômé</span>
+                </div>
+            </div>
+
+            <div class="tl-item">
+                <div class="tl-card">
+                    <div class="tl-date">2022</div>
+                    <h3>Alternance — Développeur Web</h3>
+                    <p>IADO.IO, Paris · Première expérience professionnelle en développement web.</p>
+                    <span class="tl-badge tl-badge-purple">Pro</span>
+                </div>
+            </div>
+
+            <div class="tl-item">
+                <div class="tl-card">
+                    <div class="tl-date">2023</div>
+                    <h3>Licence Informatique (L3)</h3>
+                    <p>CNAM Paris · Cours du soir. Intégration directe en 3ème année grâce au BTS.</p>
+                    <span class="tl-badge tl-badge-green">Diplômé</span>
+                </div>
+            </div>
+
+            <div class="tl-item">
+                <div class="tl-card">
+                    <div class="tl-date">2023 – 2024</div>
+                    <h3>RNCP 6 — Développeur Application Python</h3>
+                    <p>OpenClassrooms · Alternance chez IADO.IO, Paris. Terminé en 1 an au lieu de 3.</p>
+                    <span class="tl-badge tl-badge-purple">1 an / 3 ans</span>
+                </div>
+            </div>
+
+            <div class="tl-item">
+                <div class="tl-card">
+                    <div class="tl-date">2025 – présent</div>
+                    <h3>Master ROC · CNAM Paris</h3>
+                    <p>Réseaux et Objets Connectés · 2ème année · Cours du soir · Spécialisation Cybersécurité & Réseaux.</p>
+                    <span class="tl-badge tl-badge-green">En cours</span>
+                </div>
+            </div>
+
+            <div class="tl-item">
+                <div class="tl-card">
+                    <div class="tl-date">2025 – présent</div>
+                    <h3>Ingénieur Informatique · CNAM</h3>
+                    <p>En cours — recherche d'alternance pour valider le titre (2 ans d'expérience requis).</p>
+                    <span class="tl-badge tl-badge-red">Recherche alternance</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══ PROJETS ══ -->
+<section id="xpPro" class="section-alt">
+    <div class="section-inner">
+        <div class="heading">
+            <span class="label">// réalisations</span>
+            <h2>Projets</h2>
+        </div>
+        <div class="projects-grid">
+
+            <a href="./projects/bgp-hijacking.html" class="project-card">
+                <span class="project-tag tag-cyber">Cybersécurité · Réseau</span>
+                <h3>BGP Hijacking — Démonstration complète</h3>
+                <p>Simulation de deux attaques BGP distinctes (AS le plus court, préfixe le plus spécifique) avec Mininet, démontrant les vecteurs d'attaque et leur impact sur le routage inter-domaines.</p>
+                <div class="project-stack">
+                    <span class="stack-tag">Mininet</span>
+                    <span class="stack-tag">BGP</span>
+                    <span class="stack-tag">Python</span>
+                    <span class="stack-tag">FRRouting</span>
+                </div>
+                <div class="project-footer">
+                    <span class="project-link"><i class="fab fa-github"></i> GitHub →</span>
+                </div>
+            </a>
+
+            <a href="./projects/buffer-overflow.html" class="project-card">
+                <span class="project-tag tag-cyber">Cybersécurité · Exploitation</span>
+                <h3>Buffer Overflow — Démonstration</h3>
+                <p>Démonstration pratique d'une vulnérabilité buffer overflow : exploitation, analyse mémoire et contre-mesures. Présentée sous forme de slides et vidéo live.</p>
+                <div class="project-stack">
+                    <span class="stack-tag">GDB</span>
+                    <span class="stack-tag">Assembly x86</span>
+                    <span class="stack-tag">Linux</span>
+                    <span class="stack-tag">Pwntools</span>
+                </div>
+                <div class="project-footer">
+                    <span class="project-link">Voir le projet →</span>
+                </div>
+            </a>
+
+            <a href="./projects/reseau-entreprise.html" class="project-card">
+                <span class="project-tag tag-network">Réseau · Infrastructure</span>
+                <h3>Réseau d'entreprise multi-sites</h3>
+                <p>Architecture réseau complète pour une entreprise à deux sites géographiques : tunnels L2VPN/MPLS inter-sites, tunnels GRE vers Cloud, OSPF, VLAN, NAT, DHCP.</p>
+                <div class="project-stack">
+                    <span class="stack-tag">GNS3</span>
+                    <span class="stack-tag">MPLS</span>
+                    <span class="stack-tag">L2VPN</span>
+                    <span class="stack-tag">GRE</span>
+                    <span class="stack-tag">OSPF</span>
+                    <span class="stack-tag">VLAN</span>
+                </div>
+                <div class="project-footer">
+                    <span class="project-link">Voir le projet →</span>
+                </div>
+            </a>
+
+            <a href="./projects/camara-agent-ia.html" class="project-card">
+                <span class="project-tag tag-ai">IA · Cybersécurité · Réseau</span>
+                <h3>Camarà + Agent IA — Sécurité télécom</h3>
+                <p>Intégration de l'API Camarà avec un agent IA via MCP. Détection de SIM Swap, autorisation intelligente et QoD dynamique. Projet de fin de Master ROC.</p>
+                <div class="project-stack">
+                    <span class="stack-tag">Camarà API</span>
+                    <span class="stack-tag">MCP</span>
+                    <span class="stack-tag">Agent IA</span>
+                    <span class="stack-tag">Python</span>
+                    <span class="stack-tag">SIM Swap</span>
+                </div>
+                <div class="project-footer">
+                    <span class="project-link">Voir le projet →</span>
+                    <span class="project-wip">⚡ En cours</span>
+                </div>
+            </a>
+
+            <a href="./projects/pentest-opencaw.html" class="project-card">
+                <span class="project-tag tag-cyber">Pentest · Sécurité offensive</span>
+                <h3>Pentest OpenCaw — État de l'art</h3>
+                <p>Étude approfondie et démonstration de pentest sur OpenCaw. État de l'art des vulnérabilités, exploitation pratique et recommandations. Projet Master ROC / Ingénieur CNAM (SMB215).</p>
+                <div class="project-stack">
+                    <span class="stack-tag">Kali Linux</span>
+                    <span class="stack-tag">Pentest</span>
+                    <span class="stack-tag">OpenCaw</span>
+                    <span class="stack-tag">OWASP</span>
+                </div>
+                <div class="project-footer">
+                    <span class="project-link">Voir le projet →</span>
+                    <span class="project-wip">⚡ En cours</span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══ COMPÉTENCES ══ -->
+<section id="skills">
+    <div class="section-inner">
+        <div class="heading">
+            <span class="label">// compétences</span>
+            <h2>Stack technique</h2>
+        </div>
+        <div class="skills-groups">
+            <div class="skill-group">
+                <h3>Cybersécurité</h3>
+                <ul class="skill-list">
+                    <li>Kali Linux</li>
+                    <li>Pentest / Red Teaming</li>
+                    <li>Analyse de vulnérabilités</li>
+                    <li>Buffer Overflow</li>
+                    <li>TryHackMe (Jr Pentester ✓)</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <h3>Réseaux</h3>
+                <ul class="skill-list">
+                    <li>BGP / OSPF / MPLS</li>
+                    <li>VPN (L2VPN, L3VPN, GRE)</li>
+                    <li>VLAN / dot1Q</li>
+                    <li>Wireshark</li>
+                    <li>GNS3 / Packet Tracer</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <h3>Développement</h3>
+                <ul class="skill-list">
+                    <li>Python</li>
+                    <li>JavaScript / Node.js</li>
+                    <li>React.js</li>
+                    <li>HTML5 / CSS3</li>
+                    <li>MySQL</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <h3>IA & Data</h3>
+                <ul class="skill-list">
+                    <li>Machine Learning</li>
+                    <li>Classification d'attaques</li>
+                    <li>Agents IA (MCP)</li>
+                    <li>API Camarà</li>
+                    <li>GNU Octave</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <h3>Outils</h3>
+                <ul class="skill-list">
+                    <li>Git / GitHub</li>
+                    <li>Linux (Kali / Ubuntu)</li>
+                    <li>Virtualisation (VM)</li>
+                    <li>Mininet</li>
+                    <li>VS Code</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ CERTIFICATIONS ══ -->
+<section id="certifications" class="section-alt">
+    <div class="section-inner">
+        <div class="heading">
+            <span class="label">// certifications</span>
+            <h2>Certifications</h2>
+        </div>
+        <div class="certs-grid">
+            <div class="cert-card">
+                <div class="cert-icon">🎯</div>
+                <div class="cert-info">
+                    <h4>Jr Penetration Tester</h4>
+                    <div class="issuer">TryHackMe</div>
+                    <div class="date">Oct. 2025 · Expire oct. 2028 · ID : THM-EHL8M7MT2O</div>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🔴</div>
+                <div class="cert-info">
+                    <h4>Red Teaming Path</h4>
+                    <div class="issuer">TryHackMe</div>
+                    <div class="date">95% complété · En cours</div>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🔐</div>
+                <div class="cert-info">
+                    <h4>Sécurité des Réseaux Informatiques</h4>
+                    <div class="issuer">Institut Mines-Télécom (IMT) · France Université Numérique</div>
+                    <div class="date">Novembre 2025</div>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🧠</div>
+                <div class="cert-info">
+                    <h4>Machine Learning Certificate</h4>
+                    <div class="issuer">Stanford University School of Engineering · Coursera</div>
+                    <div class="date">Juin – Nov. 2021 · <a href="https://www.coursera.org/account/accomplishments/verify/Q62ZSDCC24U3" target="_blank">Vérifier ↗</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ VEILLE ══ -->
+<section id="veille">
+    <div class="section-inner">
+        <div class="heading">
+            <span class="label">// veille</span>
+            <h2>Veille technologique</h2>
+        </div>
+        <div class="veille-grid">
+            <div class="veille-text">
+                <p>La veille technologique est essentielle dans un domaine qui évolue aussi vite que la cybersécurité. Elle me permet d'anticiper les nouvelles menaces, de suivre les CVE critiques et de rester à jour sur les techniques offensives et défensives.</p>
+                <p>J'axe ma veille principalement sur la cybersécurité (nouvelles vulnérabilités, techniques de pentest, red teaming) et les réseaux (protocoles, nouvelles architectures, cloud). J'utilise Feedly comme agrégateur RSS, ainsi que les ressources TryHackMe, des blogs spécialisés et les publications des CERT.</p>
+                <a href="https://feedly.com/i/collection/content/user/cc3f545c-4b06-4093-ace8-a55bdf48b23c/category/bc6d4cab-b33f-49d4-be18-8560b406d331" target="_blank" class="btn btn-outline" style="margin-top: 1.2rem;">
+                    Voir ma veille Feedly →
+                </a>
+            </div>
+            <div class="info-card">
+                <h3>$ sources --list</h3>
+                <div class="info-row"><span class="key">TryHackMe</span><span class="val green">Actif daily</span></div>
+                <div class="info-row"><span class="key">Feedly RSS</span><span class="val">Multi-sources</span></div>
+                <div class="info-row"><span class="key">CERT-FR</span><span class="val">Alertes CVE</span></div>
+                <div class="info-row"><span class="key">Krebs on Security</span><span class="val">Threat Intel</span></div>
+                <div class="info-row"><span class="key">The Hacker News</span><span class="val">Actualités</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact" class="section-alt">
+    <div class="section-inner">
+        <div class="heading">
+            <span class="label">// contact</span>
+            <h2>Me contacter</h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-text">
+                <h3>Ouvert aux opportunités</h3>
+                <p>Je suis activement à la recherche d'une expérience professionnelle en cybersécurité (alternance, stage, CDI junior) pour valider mon titre d'ingénieur CNAM. N'hésitez pas à me contacter pour discuter de vos besoins.</p>
+                <div class="contact-info-item">
+                    <i class="far fa-envelope"></i>
+                    <span>bitan.shmuelm@gmail.com</span>
+                </div>
+                <div class="contact-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Paris, France</span>
+                </div>
+                <div class="contact-info-item">
+                    <i class="fab fa-github"></i>
+                    <span>github.com/shmuel-bitan</span>
+                </div>
+                <div style="margin-top: 1.8rem;">
+                    <a href="mailto:bitan.shmuelm@gmail.com" class="btn btn-primary">
+                        <i class="far fa-envelope"></i> Envoyer un email
+                    </a>
+                </div>
+            </div>
+            <div class="info-card">
+                <h3>$ target --role</h3>
+                <div class="info-row"><span class="key">Type de poste</span><span class="val">Alternance / Stage</span></div>
+                <div class="info-row"><span class="key">Domaine</span><span class="val">Cybersécurité</span></div>
+                <div class="info-row"><span class="key">Profil</span><span class="val">Cyber & Réseau</span></div>
+                <div class="info-row"><span class="key">Disponibilité</span><span class="val green">Immédiate</span></div>
+                <div class="info-row"><span class="key">Mobilité</span><span class="val">Paris & IDF</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+    <p>Shmuel Bitan · <span>2026</span> · Cybersecurity & Network Engineering</p>
+</footer>
+
+</body>
+</html>
