@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IncidentGraph — Shmuel Bitan</title>
+<link href="../assets/icons/BS_squared.png" rel="icon" sizes="32x32" type="image/png"/>
+<link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwVChigm" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
+<script defer="" src="../main.js"></script>
+</head>
+<body>
+<!-- NAVBAR -->
+<header id="header">
+<div class="nav-left">
+<div class="socials">
+<a href="https://fr.linkedin.com/in/shmuel-bitan-1a6395196" rel="noopener noreferrer" target="_blank" title="LinkedIn">
+<svg viewbox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M77.796 214.238V98.986H39.488v115.252H77.8zM58.65 83.253c13.356 0 21.671-8.85 21.671-19.91-.25-11.312-8.315-19.915-21.417-19.915-13.111 0-21.674 8.603-21.674 19.914 0 11.06 8.312 19.91 21.169 19.91h.248zM99 214.238h38.305v-64.355c0-3.44.25-6.889 1.262-9.346 2.768-6.885 9.071-14.012 19.656-14.012 13.858 0 19.405 10.568 19.405 26.063v61.65h38.304v-66.082c0-35.399-18.896-51.872-44.099-51.872-20.663 0-29.738 11.549-34.78 19.415h.255V98.99H99.002c.5 10.812-.003 115.252-.003 115.252z"></path></svg>
+</a>
+<a href="https://github.com/shmuel-bitan" rel="noopener noreferrer" target="_blank" title="GitHub">
+<svg viewbox="0 0 999.937 999.937" xmlns="http://www.w3.org/2000/svg"><path d="M0 499.968c0-138.012 48.825-255.843 146.476-353.493C244.125 48.825 361.956 0 499.969 0 637.98 0 755.811 48.825 853.462 146.475c97.649 97.65 146.475 215.481 146.475 353.493s-48.825 255.843-146.475 353.493c-97.65 97.65-215.481 146.476-353.493 146.476-138.013 0-255.844-48.825-353.493-146.476C48.825 755.812 0 637.979 0 499.968zm54.684 0c0 122.389 43.617 227.199 130.851 314.434 87.234 87.233 192.045 130.851 314.434 130.851 122.388 0 227.199-43.617 314.433-130.851 87.234-87.234 130.851-192.045 130.851-314.434 0-122.388-43.616-227.199-130.851-314.433C727.168 98.301 622.356 54.684 499.969 54.684c-122.389 0-227.199 43.617-314.434 130.851C98.301 272.769 54.684 377.58 54.684 499.968z"></path></svg>
+</a>
+</div>
+<a class="logo-name" href="../index.html">shmuel.bitan</a>
+</div>
+<div aria-label="Menu" id="hamburger" role="button" tabindex="0">
+<span class="bar"></span><span class="bar"></span><span class="bar"></span>
+</div>
+<nav>
+<ul id="menu">
+<li><a href="../index.html#accueil">Accueil</a></li>
+<li><a href="../index.html#profil">Profil</a></li>
+<li><a href="../index.html#formationsXP">Parcours</a></li>
+<li><a href="../index.html#xpPro">Projets</a></li>
+<li><a href="../index.html#skills">Compétences</a></li>
+<li><a href="../index.html#certifications">Certifications</a></li>
+<li><a href="../index.html#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+<!-- HERO -->
+<div class="project-hero">
+<div class="project-hero-glow"></div>
+<div class="project-hero-inner">
+<a class="back-link" href="../index.html#xpPro">
+<i class="fas fa-arrow-left"></i> Retour aux projets
+        </a>
+<div class="project-tag-row">
+<span class="project-tag tag-cyber">SOC · Incident Response · DFIR</span>
+<span class="project-tag tag-wip project-tag-spaced">MVP fonctionnel</span>
+</div>
+<h1>Incident<span>Graph</span></h1>
+<p class="subtitle">Reconstruction automatique d'incidents à partir de logs hétérogènes : normalisation, détection, corrélation, timeline, graphe d'attaque et mapping MITRE ATT&amp;CK — avec une analyse locale, déterministe et explicable.</p>
+</div>
+</div>
+<!-- BODY -->
+<div class="project-body">
+<div class="project-body-inner">
+<div class="project-content">
+<h2>// contexte — pourquoi ce projet</h2>
+<p>IncidentGraph est né dans la continuité de mon projet d'anonymisation de logs. Après avoir travaillé sur la protection des données avant analyse, je me suis posé une question plus fondamentale : <strong>pourquoi envoyer des logs sensibles à un LLM si une grande partie de la reconstruction d'un incident peut être faite localement, de manière déterministe et traçable ?</strong></p>
+<p>Dans un SOC, le problème n'est pas seulement de détecter une alerte. L'analyste doit ensuite relier des événements dispersés dans plusieurs sources, comprendre leur ordre, identifier les entités impliquées et reconstruire une chaîne d'attaque exploitable. IncidentGraph automatise cette partie du travail sans masquer le raisonnement derrière une réponse opaque.</p>
+<h2>// le problème que j'ai identifié</h2>
+<ul>
+<li><strong>Des logs très hétérogènes</strong> — Windows Security, Sysmon, Linux, firewall, JSON/JSONL ou texte brut ne parlent pas le même langage.</li>
+<li><strong>Des alertes isolées</strong> — une alerte seule donne rarement assez de contexte pour comprendre une compromission complète.</li>
+<li><strong>Une corrélation manuelle coûteuse</strong> — l'analyste doit recouper utilisateurs, IP, hôtes, processus et timestamps entre plusieurs événements.</li>
+<li><strong>Une lecture difficile de la chaîne d'attaque</strong> — passer d'une liste d'événements à une timeline et à un graphe demande du temps et de l'expérience.</li>
+<li><strong>La sensibilité des données</strong> — les logs peuvent contenir des informations internes qu'il est préférable de ne pas transmettre à un service externe.</li>
+</ul>
+<h2>// le vrai plus du projet</h2>
+<div class="project-highlight">
+<p class="project-highlight-text"><strong class="text-primary">Le cœur d'IncidentGraph n'est pas le parsing des logs.</strong> Le vrai intérêt est de transformer une succession d'événements techniques en une histoire d'attaque compréhensible : qui a fait quoi, depuis quelle machine, dans quel ordre, avec quelles techniques, et comment les différents événements sont reliés.</p>
+</div>
+<h2>// pipeline d'analyse</h2>
+<div class="pipeline-stack">
+<div class="pipeline-card pipeline-card--blue"><strong>01 · Ingestion</strong><p class="pipeline-description">Import de Windows Security XML/JSON, Sysmon, Linux auth, firewall CSV, JSONL et logs texte.</p></div>
+<div class="pipeline-card pipeline-card--purple"><strong>02 · Normalisation</strong><p class="pipeline-description">Conversion des sources hétérogènes vers un modèle d'événement commun : timestamp, host, user, IP, process, action et données brutes utiles.</p></div>
+<div class="pipeline-card pipeline-card--yellow"><strong>03 · Détection</strong><p class="pipeline-description">Règles déterministes pour identifier les comportements suspects et attribuer un niveau de sévérité explicable.</p></div>
+<div class="pipeline-card pipeline-card--danger"><strong>04 · Corrélation</strong><p class="pipeline-description">Regroupement par proximité temporelle et par entités communes : utilisateur, IP, hôte, processus et relations observées.</p></div>
+<div class="pipeline-card pipeline-card--accent"><strong>05 · Reconstruction</strong><p class="pipeline-description">Génération d'une timeline, d'un graphe d'attaque et d'un mapping MITRE ATT&amp;CK pour rendre l'incident lisible par un analyste SOC.</p></div>
+</div>
+<h2>// choix d'architecture</h2>
+<p>Pour le MVP, j'ai volontairement évité une architecture surdimensionnée. Pas de Kafka, Kubernetes, Elasticsearch, Neo4j ou modèle ML complexe tant qu'ils n'apportent pas de valeur directe à la reconstruction. Le pipeline reste simple, reproductible et auditable : <strong>Python/FastAPI</strong> pour le backend, <strong>PostgreSQL</strong> pour les données, <strong>Next.js/TypeScript</strong> pour l'interface et <strong>React Flow + NetworkX</strong> pour le graphe.</p>
+<p>Ce choix permet également de tester chaque règle et chaque corrélation séparément, puis de comprendre précisément pourquoi un événement apparaît dans un incident ou pourquoi une technique MITRE lui est associée.</p>
+<h2>// difficultés rencontrées</h2>
+<ul>
+<li><strong>Normaliser sans perdre le contexte</strong> — rendre les formats comparables tout en conservant les champs propres à chaque source utiles à l'investigation.</li>
+<li><strong>Corréler sans créer de faux liens</strong> — trouver le bon équilibre entre fenêtre temporelle, entités communes et règles de rapprochement.</li>
+<li><strong>Isoler chaque mission</strong> — le graphe, la timeline et le mapping MITRE doivent refléter uniquement le dataset actif et ne jamais réutiliser l'état d'une analyse précédente.</li>
+<li><strong>Mapper MITRE ATT&amp;CK avec prudence</strong> — une technique doit être justifiée par les preuves disponibles dans les logs, pas ajoutée uniquement parce qu'elle semble plausible.</li>
+<li><strong>Gérer des fichiers réalistes</strong> — augmenter la taille des imports et éviter les timeouts tout en gardant une interface réactive.</li>
+<li><strong>Rendre le graphe réellement utile</strong> — limiter le bruit visuel pour que les relations importantes restent immédiatement lisibles par un analyste.</li>
+</ul>
+<h2>// ce que j'ai appris</h2>
+<ul>
+<li>Conception d'un pipeline de <strong>detection engineering</strong> de bout en bout, du log brut à l'incident corrélé</li>
+<li>Normalisation de données de sécurité multi-sources et conception d'un schéma commun</li>
+<li>Corrélation temporelle et relationnelle basée sur utilisateurs, IP, hôtes et processus</li>
+<li>Modélisation d'une attaque sous forme de graphe avec NetworkX et visualisation avec React Flow</li>
+<li>Utilisation raisonnée de MITRE ATT&amp;CK pour enrichir une investigation sans surinterpréter les données</li>
+<li>Architecture FastAPI / Pydantic / SQLAlchemy / PostgreSQL et frontend Next.js / TypeScript</li>
+<li>Gestion de l'état applicatif par mission, tests de datasets hétérogènes et debugging d'une stack Docker Compose complète</li>
+<li>Importance de l'explicabilité et de la reproductibilité dans les outils destinés aux analystes SOC</li>
+</ul>
+</div>
+<aside class="project-meta">
+<div class="info-card">
+<h3>$ project --info</h3>
+<div class="info-row"><span class="key">Type</span><span class="val">SOC / DFIR</span></div>
+<div class="info-row"><span class="key">Objectif</span><span class="val">Reconstruction locale</span></div>
+<div class="info-row"><span class="key">Statut</span><span class="val green">MVP fonctionnel</span></div>
+<div class="info-row"><span class="key">Approche</span><span class="val">Déterministe</span></div>
+<div class="info-row"><span class="key">Année</span><span class="val">2026</span></div>
+</div>
+<div class="info-card">
+<h3>$ stack --list</h3>
+<div class="info-row"><span class="key">Backend</span><span class="val">Python / FastAPI</span></div>
+<div class="info-row"><span class="key">Data</span><span class="val">Pydantic / Pandas</span></div>
+<div class="info-row"><span class="key">DB</span><span class="val">PostgreSQL</span></div>
+<div class="info-row"><span class="key">ORM</span><span class="val">SQLAlchemy</span></div>
+<div class="info-row"><span class="key">Frontend</span><span class="val">Next.js / TypeScript</span></div>
+<div class="info-row"><span class="key">Graph</span><span class="val">NetworkX / React Flow</span></div>
+<div class="info-row"><span class="key">Infra</span><span class="val">Docker Compose</span></div>
+</div>
+<div class="info-card">
+<h3>$ analysis --pipeline</h3>
+<div class="info-row"><span class="key">Normalisation</span><span class="val green">✓</span></div>
+<div class="info-row"><span class="key">Détections</span><span class="val green">✓</span></div>
+<div class="info-row"><span class="key">Corrélations</span><span class="val green">✓</span></div>
+<div class="info-row"><span class="key">Timeline</span><span class="val green">✓</span></div>
+<div class="info-row"><span class="key">Attack Graph</span><span class="val green">✓</span></div>
+<div class="info-row"><span class="key">MITRE ATT&amp;CK</span><span class="val green">✓</span></div>
+</div>
+</aside>
+</div>
+</div>
+<!-- DOCS & LIENS -->
+<section class="project-resources">
+<div class="project-resources-inner">
+<div class="heading project-resources-heading">
+<span class="label">// ressources</span>
+<h2>Docs &amp; Liens</h2>
+</div>
+<div class="project-resource-grid">
+<a class="project-resource-card" href="https://github.com/shmuel-bitan/incidentgraph" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-github resource-icon resource-icon--accent"></i>
+<div>
+<div class="resource-title">Dépôt IncidentGraph</div>
+<div class="resource-description">github.com/shmuel-bitan/incidentgraph</div>
+</div>
+</a>
+<a class="project-resource-card" href="https://attack.mitre.org" rel="noopener noreferrer" target="_blank">
+<i class="fas fa-project-diagram resource-icon resource-icon--purple"></i>
+<div>
+<div class="resource-title">MITRE ATT&amp;CK</div>
+<div class="resource-description">Référentiel utilisé pour le mapping des techniques</div>
+</div>
+</a>
+</div>
+</div>
+</section>
+<footer>
+<p>Shmuel Bitan · <span>2026</span> · Cybersecurity &amp; Network Engineering</p>
+</footer>
+</body>
+</html>
