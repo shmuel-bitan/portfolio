@@ -967,6 +967,7 @@ footer span { color: var(--accent); }
     background: #1e293b;
     color: #38bdf8;
     font-weight: 500;
+<<<<<<< HEAD
 }
 
 /* PROJECT PAGE COMPONENTS — extracted from project HTML */
@@ -1109,3 +1110,6 @@ a.project-resource-card:hover {
     .agent-concept-grid { grid-template-columns: 1fr; }
     .project-resources { padding: 3rem 1.5rem; }
 }
+=======
+}
+>>>>>>> c0b43e0586d31584713a89d3c49d1ecf3ae6b012
